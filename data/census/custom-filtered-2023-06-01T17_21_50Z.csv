@@ -1,0 +1,181 @@
+Regions Code,Regions,Disability (3 categories) Code,Disability (3 categories),Age (6 categories) Code,Age (6 categories),Observation
+E12000001,North East,-8,Does not apply,1,Aged 15 years and under,0
+E12000001,North East,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000001,North East,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000001,North East,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000001,North East,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000001,North East,-8,Does not apply,6,Aged 65 years and over,0
+E12000001,North East,1,Disabled under the Equality Act,1,Aged 15 years and under,36120
+E12000001,North East,1,Disabled under the Equality Act,2,Aged 16 to 24 years,40175
+E12000001,North East,1,Disabled under the Equality Act,3,Aged 25 to 34 years,48853
+E12000001,North East,1,Disabled under the Equality Act,4,Aged 35 to 49 years,85808
+E12000001,North East,1,Disabled under the Equality Act,5,Aged 50 to 64 years,141537
+E12000001,North East,1,Disabled under the Equality Act,6,Aged 65 years and over,214810
+E12000001,North East,2,Not disabled under the Equality Act,1,Aged 15 years and under,431932
+E12000001,North East,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,243974
+E12000001,North East,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,279856
+E12000001,North East,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,388778
+E12000001,North East,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,409423
+E12000001,North East,2,Not disabled under the Equality Act,6,Aged 65 years and over,325749
+E12000002,North West,-8,Does not apply,1,Aged 15 years and under,0
+E12000002,North West,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000002,North West,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000002,North West,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000002,North West,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000002,North West,-8,Does not apply,6,Aged 65 years and over,0
+E12000002,North West,1,Disabled under the Equality Act,1,Aged 15 years and under,95686
+E12000002,North West,1,Disabled under the Equality Act,2,Aged 16 to 24 years,104159
+E12000002,North West,1,Disabled under the Equality Act,3,Aged 25 to 34 years,129161
+E12000002,North West,1,Disabled under the Equality Act,4,Aged 35 to 49 years,226914
+E12000002,North West,1,Disabled under the Equality Act,5,Aged 50 to 64 years,355992
+E12000002,North West,1,Disabled under the Equality Act,6,Aged 65 years and over,528848
+E12000002,North West,2,Not disabled under the Equality Act,1,Aged 15 years and under,1296076
+E12000002,North West,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,693864
+E12000002,North West,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,853598
+E12000002,North West,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,1161873
+E12000002,North West,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,1113758
+E12000002,North West,2,Not disabled under the Equality Act,6,Aged 65 years and over,857470
+E12000003,Yorkshire and The Humber,-8,Does not apply,1,Aged 15 years and under,0
+E12000003,Yorkshire and The Humber,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000003,Yorkshire and The Humber,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000003,Yorkshire and The Humber,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000003,Yorkshire and The Humber,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000003,Yorkshire and The Humber,-8,Does not apply,6,Aged 65 years and over,0
+E12000003,Yorkshire and The Humber,1,Disabled under the Equality Act,1,Aged 15 years and under,64498
+E12000003,Yorkshire and The Humber,1,Disabled under the Equality Act,2,Aged 16 to 24 years,77097
+E12000003,Yorkshire and The Humber,1,Disabled under the Equality Act,3,Aged 25 to 34 years,92853
+E12000003,Yorkshire and The Humber,1,Disabled under the Equality Act,4,Aged 35 to 49 years,159170
+E12000003,Yorkshire and The Humber,1,Disabled under the Equality Act,5,Aged 50 to 64 years,245502
+E12000003,Yorkshire and The Humber,1,Disabled under the Equality Act,6,Aged 65 years and over,382208
+E12000003,Yorkshire and The Humber,2,Not disabled under the Equality Act,1,Aged 15 years and under,955977
+E12000003,Yorkshire and The Humber,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,530467
+E12000003,Yorkshire and The Humber,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,625379
+E12000003,Yorkshire and The Humber,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,852381
+E12000003,Yorkshire and The Humber,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,836464
+E12000003,Yorkshire and The Humber,2,Not disabled under the Equality Act,6,Aged 65 years and over,658780
+E12000004,East Midlands,-8,Does not apply,1,Aged 15 years and under,0
+E12000004,East Midlands,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000004,East Midlands,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000004,East Midlands,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000004,East Midlands,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000004,East Midlands,-8,Does not apply,6,Aged 65 years and over,0
+E12000004,East Midlands,1,Disabled under the Equality Act,1,Aged 15 years and under,57490
+E12000004,East Midlands,1,Disabled under the Equality Act,2,Aged 16 to 24 years,68858
+E12000004,East Midlands,1,Disabled under the Equality Act,3,Aged 25 to 34 years,77561
+E12000004,East Midlands,1,Disabled under the Equality Act,4,Aged 35 to 49 years,134231
+E12000004,East Midlands,1,Disabled under the Equality Act,5,Aged 50 to 64 years,212404
+E12000004,East Midlands,1,Disabled under the Equality Act,6,Aged 65 years and over,344376
+E12000004,East Midlands,2,Not disabled under the Equality Act,1,Aged 15 years and under,824519
+E12000004,East Midlands,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,469667
+E12000004,East Midlands,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,542739
+E12000004,East Midlands,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,774434
+E12000004,East Midlands,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,766376
+E12000004,East Midlands,2,Not disabled under the Equality Act,6,Aged 65 years and over,607399
+E12000005,West Midlands,-8,Does not apply,1,Aged 15 years and under,0
+E12000005,West Midlands,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000005,West Midlands,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000005,West Midlands,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000005,West Midlands,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000005,West Midlands,-8,Does not apply,6,Aged 65 years and over,0
+E12000005,West Midlands,1,Disabled under the Equality Act,1,Aged 15 years and under,72140
+E12000005,West Midlands,1,Disabled under the Equality Act,2,Aged 16 to 24 years,78530
+E12000005,West Midlands,1,Disabled under the Equality Act,3,Aged 25 to 34 years,93405
+E12000005,West Midlands,1,Disabled under the Equality Act,4,Aged 35 to 49 years,164148
+E12000005,West Midlands,1,Disabled under the Equality Act,5,Aged 50 to 64 years,255949
+E12000005,West Midlands,1,Disabled under the Equality Act,6,Aged 65 years and over,413308
+E12000005,West Midlands,2,Not disabled under the Equality Act,1,Aged 15 years and under,1077288
+E12000005,West Midlands,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,571053
+E12000005,West Midlands,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,679535
+E12000005,West Midlands,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,949580
+E12000005,West Midlands,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,891897
+E12000005,West Midlands,2,Not disabled under the Equality Act,6,Aged 65 years and over,703925
+E12000006,East of England,-8,Does not apply,1,Aged 15 years and under,0
+E12000006,East of England,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000006,East of England,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000006,East of England,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000006,East of England,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000006,East of England,-8,Does not apply,6,Aged 65 years and over,0
+E12000006,East of England,1,Disabled under the Equality Act,1,Aged 15 years and under,75174
+E12000006,East of England,1,Disabled under the Equality Act,2,Aged 16 to 24 years,77818
+E12000006,East of England,1,Disabled under the Equality Act,3,Aged 25 to 34 years,91945
+E12000006,East of England,1,Disabled under the Equality Act,4,Aged 35 to 49 years,158428
+E12000006,East of England,1,Disabled under the Equality Act,5,Aged 50 to 64 years,237711
+E12000006,East of England,1,Disabled under the Equality Act,6,Aged 65 years and over,412759
+E12000006,East of England,2,Not disabled under the Equality Act,1,Aged 15 years and under,1111616
+E12000006,East of England,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,535639
+E12000006,East of England,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,720406
+E12000006,East of England,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,1076122
+E12000006,East of England,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,1007093
+E12000006,East of England,2,Not disabled under the Equality Act,6,Aged 65 years and over,830365
+E12000007,London,-8,Does not apply,1,Aged 15 years and under,0
+E12000007,London,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000007,London,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000007,London,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000007,London,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000007,London,-8,Does not apply,6,Aged 65 years and over,0
+E12000007,London,1,Disabled under the Equality Act,1,Aged 15 years and under,81955
+E12000007,London,1,Disabled under the Equality Act,2,Aged 16 to 24 years,93040
+E12000007,London,1,Disabled under the Equality Act,3,Aged 25 to 34 years,127804
+E12000007,London,1,Disabled under the Equality Act,4,Aged 35 to 49 years,206156
+E12000007,London,1,Disabled under the Equality Act,5,Aged 50 to 64 years,294125
+E12000007,London,1,Disabled under the Equality Act,6,Aged 65 years and over,361376
+E12000007,London,2,Not disabled under the Equality Act,1,Aged 15 years and under,1613788
+E12000007,London,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,885683
+E12000007,London,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,1467088
+E12000007,London,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,1790805
+E12000007,London,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,1195867
+E12000007,London,2,Not disabled under the Equality Act,6,Aged 65 years and over,682042
+E12000008,South East,-8,Does not apply,1,Aged 15 years and under,0
+E12000008,South East,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000008,South East,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000008,South East,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000008,South East,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000008,South East,-8,Does not apply,6,Aged 65 years and over,0
+E12000008,South East,1,Disabled under the Equality Act,1,Aged 15 years and under,111422
+E12000008,South East,1,Disabled under the Equality Act,2,Aged 16 to 24 years,122956
+E12000008,South East,1,Disabled under the Equality Act,3,Aged 25 to 34 years,133087
+E12000008,South East,1,Disabled under the Equality Act,4,Aged 35 to 49 years,221445
+E12000008,South East,1,Disabled under the Equality Act,5,Aged 50 to 64 years,329349
+E12000008,South East,1,Disabled under the Equality Act,6,Aged 65 years and over,578081
+E12000008,South East,2,Not disabled under the Equality Act,1,Aged 15 years and under,1612063
+E12000008,South East,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,810617
+E12000008,South East,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,1016483
+E12000008,South East,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,1605385
+E12000008,South East,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,1511001
+E12000008,South East,2,Not disabled under the Equality Act,6,Aged 65 years and over,1226176
+E12000009,South West,-8,Does not apply,1,Aged 15 years and under,0
+E12000009,South West,-8,Does not apply,2,Aged 16 to 24 years,0
+E12000009,South West,-8,Does not apply,3,Aged 25 to 34 years,0
+E12000009,South West,-8,Does not apply,4,Aged 35 to 49 years,0
+E12000009,South West,-8,Does not apply,5,Aged 50 to 64 years,0
+E12000009,South West,-8,Does not apply,6,Aged 65 years and over,0
+E12000009,South West,1,Disabled under the Equality Act,1,Aged 15 years and under,64792
+E12000009,South West,1,Disabled under the Equality Act,2,Aged 16 to 24 years,83314
+E12000009,South West,1,Disabled under the Equality Act,3,Aged 25 to 34 years,91611
+E12000009,South West,1,Disabled under the Equality Act,4,Aged 35 to 49 years,152225
+E12000009,South West,1,Disabled under the Equality Act,5,Aged 50 to 64 years,237098
+E12000009,South West,1,Disabled under the Equality Act,6,Aged 65 years and over,429052
+E12000009,South West,2,Not disabled under the Equality Act,1,Aged 15 years and under,900554
+E12000009,South West,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,502327
+E12000009,South West,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,596500
+E12000009,South West,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,870555
+E12000009,South West,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,928578
+E12000009,South West,2,Not disabled under the Equality Act,6,Aged 65 years and over,844580
+W92000004,Wales,-8,Does not apply,1,Aged 15 years and under,0
+W92000004,Wales,-8,Does not apply,2,Aged 16 to 24 years,0
+W92000004,Wales,-8,Does not apply,3,Aged 25 to 34 years,0
+W92000004,Wales,-8,Does not apply,4,Aged 35 to 49 years,0
+W92000004,Wales,-8,Does not apply,5,Aged 50 to 64 years,0
+W92000004,Wales,-8,Does not apply,6,Aged 65 years and over,0
+W92000004,Wales,1,Disabled under the Equality Act,1,Aged 15 years and under,36928
+W92000004,Wales,1,Disabled under the Equality Act,2,Aged 16 to 24 years,47820
+W92000004,Wales,1,Disabled under the Equality Act,3,Aged 25 to 34 years,58876
+W92000004,Wales,1,Disabled under the Equality Act,4,Aged 35 to 49 years,98881
+W92000004,Wales,1,Disabled under the Equality Act,5,Aged 50 to 64 years,163924
+W92000004,Wales,1,Disabled under the Equality Act,6,Aged 65 years and over,263837
+W92000004,Wales,2,Not disabled under the Equality Act,1,Aged 15 years and under,511150
+W92000004,Wales,2,Not disabled under the Equality Act,2,Aged 16 to 24 years,281260
+W92000004,Wales,2,Not disabled under the Equality Act,3,Aged 25 to 34 years,323799
+W92000004,Wales,2,Not disabled under the Equality Act,4,Aged 35 to 49 years,448779
+W92000004,Wales,2,Not disabled under the Equality Act,5,Aged 50 to 64 years,474034
+W92000004,Wales,2,Not disabled under the Equality Act,6,Aged 65 years and over,398207

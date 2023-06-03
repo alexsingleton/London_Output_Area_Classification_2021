@@ -1,0 +1,61 @@
+Regions Code,Regions,Age (6 categories) Code,Age (6 categories),Observation
+E12000001,North East,1,Aged 15 years and under,468053
+E12000001,North East,2,Aged 16 to 24 years,284149
+E12000001,North East,3,Aged 25 to 34 years,328709
+E12000001,North East,4,Aged 35 to 49 years,474586
+E12000001,North East,5,Aged 50 to 64 years,550957
+E12000001,North East,6,Aged 65 years and over,540559
+E12000002,North West,1,Aged 15 years and under,1391762
+E12000002,North West,2,Aged 16 to 24 years,798023
+E12000002,North West,3,Aged 25 to 34 years,982760
+E12000002,North West,4,Aged 35 to 49 years,1388786
+E12000002,North West,5,Aged 50 to 64 years,1469750
+E12000002,North West,6,Aged 65 years and over,1386315
+E12000003,Yorkshire and The Humber,1,Aged 15 years and under,1020475
+E12000003,Yorkshire and The Humber,2,Aged 16 to 24 years,607562
+E12000003,Yorkshire and The Humber,3,Aged 25 to 34 years,718232
+E12000003,Yorkshire and The Humber,4,Aged 35 to 49 years,1011551
+E12000003,Yorkshire and The Humber,5,Aged 50 to 64 years,1081966
+E12000003,Yorkshire and The Humber,6,Aged 65 years and over,1040988
+E12000004,East Midlands,1,Aged 15 years and under,882009
+E12000004,East Midlands,2,Aged 16 to 24 years,538525
+E12000004,East Midlands,3,Aged 25 to 34 years,620300
+E12000004,East Midlands,4,Aged 35 to 49 years,908665
+E12000004,East Midlands,5,Aged 50 to 64 years,978780
+E12000004,East Midlands,6,Aged 65 years and over,951775
+E12000005,West Midlands,1,Aged 15 years and under,1149428
+E12000005,West Midlands,2,Aged 16 to 24 years,649583
+E12000005,West Midlands,3,Aged 25 to 34 years,772940
+E12000005,West Midlands,4,Aged 35 to 49 years,1113728
+E12000005,West Midlands,5,Aged 50 to 64 years,1147845
+E12000005,West Midlands,6,Aged 65 years and over,1117233
+E12000006,East of England,1,Aged 15 years and under,1186790
+E12000006,East of England,2,Aged 16 to 24 years,613455
+E12000006,East of England,3,Aged 25 to 34 years,812351
+E12000006,East of England,4,Aged 35 to 49 years,1234550
+E12000006,East of England,5,Aged 50 to 64 years,1244804
+E12000006,East of England,6,Aged 65 years and over,1243124
+E12000007,London,1,Aged 15 years and under,1695743
+E12000007,London,2,Aged 16 to 24 years,978722
+E12000007,London,3,Aged 25 to 34 years,1594892
+E12000007,London,4,Aged 35 to 49 years,1996961
+E12000007,London,5,Aged 50 to 64 years,1489992
+E12000007,London,6,Aged 65 years and over,1043418
+E12000008,South East,1,Aged 15 years and under,1723485
+E12000008,South East,2,Aged 16 to 24 years,933573
+E12000008,South East,3,Aged 25 to 34 years,1149570
+E12000008,South East,4,Aged 35 to 49 years,1826830
+E12000008,South East,5,Aged 50 to 64 years,1840350
+E12000008,South East,6,Aged 65 years and over,1804257
+E12000009,South West,1,Aged 15 years and under,965346
+E12000009,South West,2,Aged 16 to 24 years,585641
+E12000009,South West,3,Aged 25 to 34 years,688111
+E12000009,South West,4,Aged 35 to 49 years,1022780
+E12000009,South West,5,Aged 50 to 64 years,1165676
+E12000009,South West,6,Aged 65 years and over,1273632
+W92000004,Wales,1,Aged 15 years and under,548078
+W92000004,Wales,2,Aged 16 to 24 years,329080
+W92000004,Wales,3,Aged 25 to 34 years,382675
+W92000004,Wales,4,Aged 35 to 49 years,547659
+W92000004,Wales,5,Aged 50 to 64 years,637958
+W92000004,Wales,6,Aged 65 years and over,662044
