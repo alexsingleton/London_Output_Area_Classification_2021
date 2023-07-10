@@ -1,61 +1,69 @@
-﻿No.,Variable Name,Variables,Non_PCT,Domain
-v01,Usual residents per square kilometre,ts0060001,X,Demographic
-v02,Aged 4 years and under,ts007a0002,,Demographic
-v03,Aged 5 to 14 years,ts007a0003 & ts007a0004,,Demographic
-v04,Aged 25 to 44 years,"ts007a0007 & ts007a0008 & ts007a0009 & ts007a0010	",,Demographic
-v05,Aged 45 to 64 years,ts007a0011 & ts007a0012 & ts007a0013 &  ts007a0014,,Demographic
-v06,Aged 65 to 84 years,ts007a0015 & ts007a0016 & ts007a0017 & ts007a0018 ,,Demographic
-v07,Aged 85 years and over,ts007a0019,,Demographic
-v08,Country of birth: Europe: United Kingdom,ts0040003,,Demographic
-v09,Country of birth: Europe: EU countries,ts0040004,,Demographic
-v10,Country of birth: Europe: Non-EU countries,ts0040009,,Demographic
-v11,Country of birth: Africa,ts0040011,,Demographic
-v12,Ethnic group: Bangladeshi,ts0210003,,Demographic
-v13,Ethnic group: Chinese,ts0210004,,Demographic
-v14,Ethnic group: Indian,ts0210005,,Demographic
-v15,Ethnic group: Pakistani,ts0210006,,Demographic
-v16,Ethnic group: Other Asian,ts0210007,,Demographic
-v17,Ethnic group: Black,ts0210008 & ts0210009 & ts0210010 & ts0210011,,Demographic
-v18,Ethnic group: Mixed or Multiple ethnic groups,ts0210012,,Demographic
-v19,Ethnic group: White,ts0210017,,Demographic
-v20,Cannot speak English well or at all,ts0290006,,Demographic
-v21,No religion,ts0300002,,Demographic
-v22,Christian,ts0300003,,Demographic
-v23,Other religion,ts0300009,,Demographic
-v24,Never married and never registered a civil partnership,ts0020002,,Living aggangements
-v25,Married or in a registered civil partnership,ts0020003,,Living aggangements
-v26,Separated or divorced,ts0020010 & ts0020013,,Living aggangements
-v27,One-person household,ts0030002,,Living aggangements
-v28,Families with no children,ts0030008 & ts0030012,,Living aggangements
-v29,Families with dependent children,ts0030009 & ts0030013 & ts0030016,,Living aggangements
-v30,All household members have the same ethnic group,ts0230003,,Living aggangements
-v31,Lives in a communal establishment,ts0010003,,Usual residence
-v32,Address one year ago is the same as the address of enumeration,ts0190002,,Usual residence
-v33,Detached house or bungalow,ts0440002,,Usual residence
-v34,Semi-detached house or bungalow,ts0440003,,Usual residence
-v35,Terraced (including end-terrace) house or bungalow,ts0440004,,Usual residence
-v36,"Flat, maisonette or apartment",ts0440005 & ts0440006 & ts0440007,,Usual residence
-v37,Ownership or shared ownership,ts0540002 & ts0540005,,Usual residence
-v38,Social rented,ts0540007,,Usual residence
-v39,Private rented,ts0540010,,Usual residence
-v40,Occupancy rating of rooms: +1 or more,ts0520003,,Usual residence
-v41,Occupancy rating of rooms: -1 or less,ts0520005,,Usual residence
-v42,Standardised Illness Ratio,,X,Other
-v43,Provides no unpaid care,ts0390002,,Other
-v44,2 or more cars or vans in household,ts0450004,,Other
-v45,"Highest level of qualification: Level 1, 2 or Apprenticeship",ts0670003,,Other
-v46,Highest level of qualification: Level 3 qualifications,ts0670006,,Other
-v47,Highest level of qualification: Level 4 qualifications or above,ts0670007,,Other
-v48,Hours worked: Part-time,ts0590002,,Employment
-v49,Hours worked: Full-time,ts0590005,,Employment
-v50,NS-SeC: L15 Full-time students,ts0620010,,Employment
-v51,"SOC: 1. Managers, directors and senior officials",ts0630002,,Employment
-v52,SOC: 2. Professional occupations,ts0630003,,Employment
-v53,SOC: 3. Associate professional and technical occupations,ts0630004,,Employment
-v54,SOC: 4. Administrative and secretarial occupations,ts0630005,,Employment
-v55,SOC: 5. Skilled trades occupations,"ts0630006	",,Employment
-v56,"SOC: 6. Caring, leisure and other service occupations",ts0630007,,Employment
-v57,SOC: 7. Sales and customer service occupations,ts0630008,,Employment
-v58,"SOC: 8. Process, plant and machine operatives",ts0630009,,Employment
-v59,SOC: 9. Elementary occupations,ts0630010,,Employment
-v60,Economically active: Unemployed,ts0650001,X,Employment
+﻿No.,Variable Name,Variables,Non_PCT,Domain,GPT
+v01,Usual residents per square kilometre,ts0060001,X,Demographic,The density of the area
+v02,Aged 4 years and under,ts007a0002,,Demographic,Aged 4 years and under
+v03,Aged 5 to 14 years,ts007a0003 & ts007a0004,,Demographic,Aged 5 to 14 years
+v04,Aged 25 to 44 years,"ts007a0007 & ts007a0008 & ts007a0009 & ts007a0010	",,Demographic,Aged 25 to 44 years
+v05,Aged 45 to 64 years,ts007a0011 & ts007a0012 & ts007a0013 &  ts007a0014,,Demographic,Aged 45 to 64 years
+v06,Aged 65 to 84 years,ts007a0015 & ts007a0016 & ts007a0017 & ts007a0018 ,,Demographic,Aged 65 to 84 years
+v07,Aged 85 years and over,ts007a0019,,Demographic,Aged 85 years and over
+v08,Country of birth: Europe: United Kingdom,ts0040003,,Ethnicity and Origins,Born in United Kingdon
+v09,Country of birth: Europe: EU countries,ts0040004,,Ethnicity and Origins,Born in the EU
+v10,Country of birth: Europe: Non-EU countries,ts0040009,,Ethnicity and Origins,Not born in the EU
+v11,Country of birth: Africa,ts0040011,,Ethnicity and Origins,Born in Africa
+v12,Ethnic group: Bangladeshi,ts0210003,,Ethnicity and Origins,Ethnicity Bangladeshi
+v13,Ethnic group: Chinese,ts0210004,,Ethnicity and Origins,Ethnicity Chinese
+v14,Ethnic group: Indian,ts0210005,,Ethnicity and Origins,Ethnicity Indian
+v15,Ethnic group: Pakistani,ts0210006,,Ethnicity and Origins,Ethnicity Pakistani
+v16,Ethnic group: Other Asian,ts0210007,,Ethnicity and Origins,Ethnicity Other Asian
+v17,Ethnic group: Black,ts0210008,,Ethnicity and Origins,Ethnicity Black
+v18,Ethnic group: Mixed or Multiple ethnic groups,ts0210012,,Ethnicity and Origins,Ethnicity Mixed or Multiple ethnic groups
+v19,Ethnic group: White,ts0210017,,Ethnicity and Origins,Ethnicity White
+v20,Cannot speak English well or at all,ts0290006,,Ethnicity and Origins,Cannot speak English well or at all
+v21,No religion,ts0300002,,Ethnicity and Origins,No religion
+v22,Christian,ts0300003,,Ethnicity and Origins,Christian
+v23,Other religion,ts0300009,,Ethnicity and Origins,Other religion
+v24,Never married and never registered a civil partnership,ts0020002,,Living Arrangements,Never Married
+v25,Married or in a registered civil partnership,ts0020003,,Living Arrangements,Married
+v26,Separated or divorced,ts0020010 & ts0020013,,Living Arrangements,Separated or divorced
+v27,One-person household,ts0030002,,Living Arrangements,One-person household
+v28,Families with no children,ts0030008 & ts0030012,,Living Arrangements,Families with no children
+v29,Families with dependent children,ts0030009 & ts0030013 & ts0030016,,Living Arrangements,Families with dependent children
+v30,All household members have the same ethnic group,ts0230003,,Living Arrangements,All household members have the same ethnic group
+v31,Lives in a communal establishment,ts0010003,,Usual Residence,Lives in a communal establishment
+v32,Address one year ago is the same as the address of enumeration,ts0190002,,Usual Residence,Lives in the same address as a year ago
+v33,Detached house or bungalow,ts0440002,,Usual Residence,Detached house or bungalow
+v34,Semi-detached house or bungalow,ts0440003,,Usual Residence,Semi-detached house or bungalow
+v35,Terraced (including end-terrace) house,ts0440004,,Usual Residence,Terraced house
+v36,"Flat, maisonette or apartment",ts0440005 & ts0440006 & ts0440007,,Usual Residence,Flat
+v37,Ownership or shared ownership,ts0540002 & ts0540005,,Usual Residence,Owns house
+v38,Social rented,ts0540007,,Usual Residence,Social rented
+v39,Private rented,ts0540010,,Usual Residence,Private rented
+v40,Occupancy rating of rooms: +1 or more,ts0520003,,Usual Residence,accommodation is under-occupied
+v41,Occupancy rating of rooms: -1 or less,ts0520005,,Usual Residence,accommodation is overcrowded
+v42,Standardised Illness Ratio,,X,Other,Standardised Illness Ratio
+v43,Provides no unpaid care,ts0390002,,Other,residents provide no unpaid care
+v44,2 or more cars or vans in household,ts0450004,,Other,household is more affluent
+v45,"Highest level of qualification: Level 1, 2 or Apprenticeship",ts0670003,,Other,"have level 1,2 or Apprenticeship qualifications"
+v46,Highest level of qualification: Level 3 qualifications,ts0670006,,Other,have Level 3 qualifications
+v47,Highest level of qualification: Level 4 qualifications or above,ts0670007,,Other,have Level 4  or above qualifications
+v48,Hours worked: Part-time,ts0590002,,Employment,work part time
+v49,Hours worked: Full-time,ts0590005,,Employment,work full time
+v50,NS-SeC: L15 Full-time students,ts0620010,,Employment,full time students
+v51,"SOC: 1. Managers, directors and senior officials",ts0630002,,Employment,"employed as a manager, director or senior officials"
+v52,SOC: 2. Professional occupations,ts0630003,,Employment,employed in a professional occupation
+v53,SOC: 3. Associate professional and technical occupations,ts0630004,,Employment,employed in an Associate professional or technical occupation
+v54,SOC: 4. Administrative and secretarial occupations,ts0630005,,Employment,employed in a Administrative and secretarial occupation
+v55,SOC: 5. Skilled trades occupations,"ts0630006	",,Employment,employed in a skilled trade
+v56,"SOC: 6. Caring, leisure and other service occupations",ts0630007,,Employment,"employed in Caring, leisure and other service occupations"
+v57,SOC: 7. Sales and customer service occupations,ts0630008,,Employment,employed in  Sales and customer service occupations
+v58,"SOC: 8. Process, plant and machine operatives",ts0630009,,Employment,"employed as Process, plant and machine operatives"
+v59,SOC: 9. Elementary occupations,ts0630010,,Employment,employed in  Elementary occupations
+v60,Economically active: Unemployed,ts0650001,X,Employment,unemployed
+v61,"Agriculture, energy and water",ts0600002,,Employment,"industry of employment is in Agriculture, energy and water"
+v62,Manufacturing,ts0600003,,Employment,industry of employment is in Manufacturing
+v63,Construction,ts0600004,,Employment,industry of employment is in Construction
+v64,"Distribution, hotels and restaurants",ts0600005,,Employment,"industry of employment is in Distribution, hotels and restaurants"
+v65,Transport and communication,ts0600006,,Employment,industry of employment is in Transport and communication
+v66,"Financial, real estate, professional and administrative activities",ts0600007,,Employment,"industry of employment is in Financial, real estate, professional and administrative activities"
+v67,"Public administration, education and health",ts0600008,,Employment,"industry of employment is in Public administration, education and health"
+v68,Other,ts0600009,,Employment,industry of employment is in Other
