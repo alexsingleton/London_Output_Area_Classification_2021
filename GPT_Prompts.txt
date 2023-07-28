@@ -1,0 +1,484 @@
+A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:99
+Aged 5 to 14 years:97
+Aged 25 to 44 years:97
+Aged 45 to 64 years:110
+Aged 65 to 84 years:118
+Aged 85 years and over:113
+Born in United Kingdon:111
+Born in the EU:98
+Not born in the EU:93
+Born in Africa:55
+Ethnicity Bangladeshi:14
+Ethnicity Chinese:95
+Ethnicity Indian:45
+Ethnicity Pakistani:28
+Ethnicity Other Asian:55
+Ethnicity Black:30
+Ethnicity White:138
+Cannot speak English well or at all:31
+No religion:136
+Christian:104
+Never Married:92
+Married:113
+Separated or divorced:90
+One-person household:102
+Families with no children:132
+Families with dependent children:100
+All household members have the same ethnic group:90
+Lives in a communal establishment:51
+Lives in the same address as a year ago:98
+Detached house or bungalow:77
+Semi-detached house or bungalow:75
+Terraced house:154
+Flat:91
+Owns house:125
+Social rented:39
+Private rented:103
+accommodation is under-occupied:113
+accommodation is overcrowded:35
+Standardised Illness Ratio:75
+residents provide no unpaid care:101
+household is more affluent:95
+have level 1,2 or Apprenticeship qualifications:47
+have Level 3 qualifications:81
+have Level 4  or above qualifications:139
+work part time:80
+work full time:108
+full time students:74
+employed as a manager, director or senior officials:161
+employed in a professional occupation:134
+employed in an Associate professional or technical occupation:126
+employed in a Administrative and secretarial occupation:74
+employed in a skilled trade:43
+employed in Caring, leisure and other service occupations:56
+employed in  Sales and customer service occupations:46
+employed as Process, plant and machine operatives:27
+employed in  Elementary occupations:31
+unemployed:87
+industry of employment is in Agriculture, energy and water:130
+industry of employment is in Manufacturing:103
+industry of employment is in Construction:56
+industry of employment is in Distribution, hotels and restaurants:70
+industry of employment is in Transport and communication:106
+industry of employment is in Financial, real estate, professional and administrative activities:150
+industry of employment is in Public administration, education and health:92
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average. A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:101
+Aged 5 to 14 years:88
+Aged 25 to 44 years:111
+Aged 45 to 64 years:99
+Aged 65 to 84 years:91
+Aged 85 years and over:93
+Born in United Kingdon:105
+Born in the EU:108
+Not born in the EU:97
+Born in Africa:91
+Ethnicity Bangladeshi:53
+Ethnicity Chinese:81
+Ethnicity Indian:47
+Ethnicity Pakistani:59
+Ethnicity Other Asian:74
+Ethnicity Black:111
+Ethnicity White:110
+Cannot speak English well or at all:89
+No religion:126
+Christian:100
+Never Married:114
+Married:82
+Separated or divorced:109
+One-person household:114
+Families with no children:116
+Families with dependent children:89
+All household members have the same ethnic group:85
+Lives in a communal establishment:100
+Lives in the same address as a year ago:98
+Detached house or bungalow:47
+Semi-detached house or bungalow:50
+Terraced house:100
+Flat:123
+Owns house:89
+Social rented:107
+Private rented:113
+accommodation is under-occupied:102
+accommodation is overcrowded:93
+Standardised Illness Ratio:110
+residents provide no unpaid care:100
+household is more affluent:63
+have level 1,2 or Apprenticeship qualifications:89
+have Level 3 qualifications:97
+have Level 4  or above qualifications:108
+work part time:93
+work full time:103
+full time students:85
+employed as a manager, director or senior officials:97
+employed in a professional occupation:109
+employed in an Associate professional or technical occupation:118
+employed in a Administrative and secretarial occupation:94
+employed in a skilled trade:92
+employed in Caring, leisure and other service occupations:94
+employed in  Sales and customer service occupations:85
+employed as Process, plant and machine operatives:76
+employed in  Elementary occupations:89
+unemployed:91
+industry of employment is in Agriculture, energy and water:82
+industry of employment is in Manufacturing:90
+industry of employment is in Construction:88
+industry of employment is in Distribution, hotels and restaurants:97
+industry of employment is in Transport and communication:99
+industry of employment is in Financial, real estate, professional and administrative activities:100
+industry of employment is in Public administration, education and health:111
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average. A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:109
+Aged 5 to 14 years:116
+Aged 25 to 44 years:91
+Aged 45 to 64 years:100
+Aged 65 to 84 years:101
+Aged 85 years and over:99
+Born in United Kingdon:79
+Born in the EU:105
+Not born in the EU:74
+Born in Africa:108
+Ethnicity Bangladeshi:171
+Ethnicity Chinese:46
+Ethnicity Indian:311
+Ethnicity Pakistani:329
+Ethnicity Other Asian:204
+Ethnicity Black:80
+Ethnicity White:56
+Cannot speak English well or at all:197
+No religion:37
+Christian:84
+Never Married:78
+Married:128
+Separated or divorced:84
+One-person household:67
+Families with no children:61
+Families with dependent children:113
+All household members have the same ethnic group:126
+Lives in a communal establishment:54
+Lives in the same address as a year ago:105
+Detached house or bungalow:121
+Semi-detached house or bungalow:180
+Terraced house:153
+Flat:49
+Owns house:116
+Social rented:46
+Private rented:112
+accommodation is under-occupied:94
+accommodation is overcrowded:145
+Standardised Illness Ratio:90
+residents provide no unpaid care:100
+household is more affluent:151
+have level 1,2 or Apprenticeship qualifications:137
+have Level 3 qualifications:102
+have Level 4  or above qualifications:76
+work part time:117
+work full time:94
+full time students:112
+employed as a manager, director or senior officials:70
+employed in a professional occupation:69
+employed in an Associate professional or technical occupation:68
+employed in a Administrative and secretarial occupation:113
+employed in a skilled trade:153
+employed in Caring, leisure and other service occupations:107
+employed in  Sales and customer service occupations:151
+employed as Process, plant and machine operatives:179
+employed in  Elementary occupations:162
+unemployed:110
+industry of employment is in Agriculture, energy and water:69
+industry of employment is in Manufacturing:136
+industry of employment is in Construction:163
+industry of employment is in Distribution, hotels and restaurants:139
+industry of employment is in Transport and communication:114
+industry of employment is in Financial, real estate, professional and administrative activities:66
+industry of employment is in Public administration, education and health:90
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average. A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:80
+Aged 5 to 14 years:48
+Aged 25 to 44 years:150
+Aged 45 to 64 years:73
+Aged 65 to 84 years:58
+Aged 85 years and over:51
+Born in United Kingdon:78
+Born in the EU:152
+Not born in the EU:148
+Born in Africa:76
+Ethnicity Bangladeshi:59
+Ethnicity Chinese:256
+Ethnicity Indian:83
+Ethnicity Pakistani:44
+Ethnicity Other Asian:99
+Ethnicity Black:53
+Ethnicity White:111
+Cannot speak English well or at all:61
+No religion:138
+Christian:85
+Never Married:133
+Married:72
+Separated or divorced:81
+One-person household:137
+Families with no children:166
+Families with dependent children:55
+All household members have the same ethnic group:73
+Lives in a communal establishment:249
+Lives in the same address as a year ago:83
+Detached house or bungalow:9
+Semi-detached house or bungalow:5
+Terraced house:13
+Flat:176
+Owns house:72
+Social rented:59
+Private rented:172
+accommodation is under-occupied:108
+accommodation is overcrowded:68
+Standardised Illness Ratio:84
+residents provide no unpaid care:103
+household is more affluent:25
+have level 1,2 or Apprenticeship qualifications:42
+have Level 3 qualifications:85
+have Level 4  or above qualifications:142
+work part time:63
+work full time:114
+full time students:119
+employed as a manager, director or senior officials:129
+employed in a professional occupation:144
+employed in an Associate professional or technical occupation:127
+employed in a Administrative and secretarial occupation:72
+employed in a skilled trade:44
+employed in Caring, leisure and other service occupations:53
+employed in  Sales and customer service occupations:60
+employed as Process, plant and machine operatives:35
+employed in  Elementary occupations:45
+unemployed:73
+industry of employment is in Agriculture, energy and water:137
+industry of employment is in Manufacturing:108
+industry of employment is in Construction:52
+industry of employment is in Distribution, hotels and restaurants:92
+industry of employment is in Transport and communication:125
+industry of employment is in Financial, real estate, professional and administrative activities:158
+industry of employment is in Public administration, education and health:90
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average. A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:111
+Aged 5 to 14 years:117
+Aged 25 to 44 years:97
+Aged 45 to 64 years:96
+Aged 65 to 84 years:74
+Aged 85 years and over:70
+Born in United Kingdon:92
+Born in the EU:92
+Not born in the EU:126
+Born in Africa:171
+Ethnicity Bangladeshi:269
+Ethnicity Chinese:83
+Ethnicity Indian:43
+Ethnicity Pakistani:63
+Ethnicity Other Asian:96
+Ethnicity Black:207
+Ethnicity White:70
+Cannot speak English well or at all:154
+No religion:80
+Christian:98
+Never Married:118
+Married:73
+Separated or divorced:130
+One-person household:118
+Families with no children:67
+Families with dependent children:110
+All household members have the same ethnic group:91
+Lives in a communal establishment:114
+Lives in the same address as a year ago:102
+Detached house or bungalow:12
+Semi-detached house or bungalow:8
+Terraced house:14
+Flat:175
+Owns house:38
+Social rented:263
+Private rented:82
+accommodation is under-occupied:73
+accommodation is overcrowded:184
+Standardised Illness Ratio:134
+residents provide no unpaid care:100
+household is more affluent:36
+have level 1,2 or Apprenticeship qualifications:125
+have Level 3 qualifications:108
+have Level 4  or above qualifications:80
+work part time:125
+work full time:90
+full time students:132
+employed as a manager, director or senior officials:62
+employed in a professional occupation:78
+employed in an Associate professional or technical occupation:90
+employed in a Administrative and secretarial occupation:97
+employed in a skilled trade:103
+employed in Caring, leisure and other service occupations:153
+employed in  Sales and customer service occupations:138
+employed as Process, plant and machine operatives:139
+employed in  Elementary occupations:158
+unemployed:119
+industry of employment is in Agriculture, energy and water:70
+industry of employment is in Manufacturing:65
+industry of employment is in Construction:72
+industry of employment is in Distribution, hotels and restaurants:115
+industry of employment is in Transport and communication:84
+industry of employment is in Financial, real estate, professional and administrative activities:72
+industry of employment is in Public administration, education and health:106
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average. A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:110
+Aged 5 to 14 years:125
+Aged 25 to 44 years:86
+Aged 45 to 64 years:105
+Aged 65 to 84 years:91
+Aged 85 years and over:83
+Born in United Kingdon:105
+Born in the EU:91
+Not born in the EU:112
+Born in Africa:137
+Ethnicity Bangladeshi:112
+Ethnicity Chinese:58
+Ethnicity Indian:55
+Ethnicity Pakistani:111
+Ethnicity Other Asian:100
+Ethnicity Black:181
+Ethnicity White:88
+Cannot speak English well or at all:132
+No religion:85
+Christian:113
+Never Married:99
+Married:94
+Separated or divorced:124
+One-person household:89
+Families with no children:65
+Families with dependent children:121
+All household members have the same ethnic group:109
+Lives in a communal establishment:58
+Lives in the same address as a year ago:106
+Detached house or bungalow:83
+Semi-detached house or bungalow:120
+Terraced house:175
+Flat:66
+Owns house:85
+Social rented:169
+Private rented:75
+accommodation is under-occupied:98
+accommodation is overcrowded:144
+Standardised Illness Ratio:123
+residents provide no unpaid care:99
+household is more affluent:109
+have level 1,2 or Apprenticeship qualifications:143
+have Level 3 qualifications:110
+have Level 4  or above qualifications:68
+work part time:120
+work full time:92
+full time students:110
+employed as a manager, director or senior officials:63
+employed in a professional occupation:65
+employed in an Associate professional or technical occupation:76
+employed in a Administrative and secretarial occupation:111
+employed in a skilled trade:152
+employed in Caring, leisure and other service occupations:152
+employed in  Sales and customer service occupations:137
+employed as Process, plant and machine operatives:163
+employed in  Elementary occupations:157
+unemployed:113
+industry of employment is in Agriculture, energy and water:89
+industry of employment is in Manufacturing:88
+industry of employment is in Construction:138
+industry of employment is in Distribution, hotels and restaurants:111
+industry of employment is in Transport and communication:83
+industry of employment is in Financial, real estate, professional and administrative activities:60
+industry of employment is in Public administration, education and health:112
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average. A geodemographics company is trying to explain the characteristics of a neighborhood to a new customer. They present a table of data comparing the characteristics of this cluster to the national average. A score of 100 means the neighborhood is equivalent to the national average, a score of 150 means the neighborhood one and a half times the national average, a score of 200 means the neighborhood is twice the national average, a score of 50 means the neighborhood is half of the national average, a score of 300 means the neighborhood is three times the national average. The neighborhood has the following characteristics, described in #DATA# below. Data are presented for each characteristic followed by a colon, and then a score. The description of the neighborhood should focus on characteristics that have scores which are greater than 120 or less than 80.
+
+ #DATA#
+Aged 4 years and under:89
+Aged 5 to 14 years:109
+Aged 25 to 44 years:68
+Aged 45 to 64 years:117
+Aged 65 to 84 years:168
+Aged 85 years and over:191
+Born in United Kingdon:130
+Born in the EU:53
+Not born in the EU:50
+Born in Africa:61
+Ethnicity Bangladeshi:22
+Ethnicity Chinese:80
+Ethnicity Indian:117
+Ethnicity Pakistani:66
+Ethnicity Other Asian:73
+Ethnicity Black:39
+Ethnicity White:127
+Cannot speak English well or at all:37
+No religion:98
+Christian:116
+Never Married:66
+Married:138
+Separated or divorced:83
+One-person household:73
+Families with no children:93
+Families with dependent children:113
+All household members have the same ethnic group:125
+Lives in a communal establishment:74
+Lives in the same address as a year ago:108
+Detached house or bungalow:352
+Semi-detached house or bungalow:263
+Terraced house:91
+Flat:20
+Owns house:175
+Social rented:17
+Private rented:42
+accommodation is under-occupied:112
+accommodation is overcrowded:31
+Standardised Illness Ratio:83
+residents provide no unpaid care:98
+household is more affluent:220
+have level 1,2 or Apprenticeship qualifications:118
+have Level 3 qualifications:118
+have Level 4  or above qualifications:87
+work part time:103
+work full time:99
+full time students:70
+employed as a manager, director or senior officials:118
+employed in a professional occupation:101
+employed in an Associate professional or technical occupation:95
+employed in a Administrative and secretarial occupation:141
+employed in a skilled trade:113
+employed in Caring, leisure and other service occupations:85
+employed in  Sales and customer service occupations:83
+employed as Process, plant and machine operatives:82
+employed in  Elementary occupations:58
+unemployed:107
+industry of employment is in Agriculture, energy and water:123
+industry of employment is in Manufacturing:111
+industry of employment is in Construction:132
+industry of employment is in Distribution, hotels and restaurants:76
+industry of employment is in Transport and communication:89
+industry of employment is in Financial, real estate, professional and administrative activities:94
+industry of employment is in Public administration, education and health:99
+
+
+ In the third person and style of a commercial geodemographic company, write a description of the neighborhood in no more than 300 words. Don't mention the specific scores from the #DATA#, but use descriptive words to illustrate rates that are above or below the national average.
