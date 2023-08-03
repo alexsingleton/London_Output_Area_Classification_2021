@@ -2,6 +2,8 @@
 .Rhistory
 .Rapp.history
 .local/
+.local
+.config
 
 # Session Data files
 .RData

@@ -40,7 +40,7 @@ v38,Social rented,ts0540007,,Usual Residence,Social rented
 v39,Private rented,ts0540010,,Usual Residence,Private rented
 v40,Occupancy rating of rooms: +1 or more,ts0520003,,Usual Residence,accommodation is under-occupied
 v41,Occupancy rating of rooms: -1 or less,ts0520005,,Usual Residence,accommodation is overcrowded
-v42,Standardised Illness Ratio,,X,Other,Standardised Illness Ratio
+v42,Standardised Disability Ratio,,X,Other,Standardised Disability Ratio
 v43,Provides no unpaid care,ts0390002,,Other,residents provide no unpaid care
 v44,2 or more cars or vans in household,ts0450004,,Other,household is more affluent
 v45,"Highest level of qualification: Level 1, 2 or Apprenticeship",ts0670003,,Other,"have level 1,2 or Apprenticeship qualifications"
