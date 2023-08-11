@@ -31,6 +31,11 @@ library(ggpubr)
 library(patchwork)
 library(chatgpt)
 library(tcltk2)
+libary(ggspatial)
+library(osmdata)
+library(ggrepel)
+library(showtext)
+font_add_google("Open Sans", "Light 300")
 
 #---------
 # Import spatial data
@@ -47,6 +52,13 @@ OA_UTLAD <- read_csv("https://www.arcgis.com/sharing/rest/content/items/4393e36f
 
 # Local Authority Districts (December 2021) GB BGC
 LAD_Dec21 <- st_read("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2021_GB_BGC_2022/FeatureServer/0/query?where=1%3D1&outFields=LAD21CD,LAD21NM&outSR=4326&f=json")
+
+# Fix Projections
+OA_2021_Boundary %<>%
+st_transform(27700)
+
+LAD_Dec21 %<>%
+st_transform(27700)
 
 
 # Create Greater London OA lookup
@@ -1026,7 +1038,7 @@ cluster_assignments_SF <- st_read("./map/LOAC_Group.gpkg")
   # GLA Supergroup and Group Map
   #---------
 
-SGroup_palette <- c("A" = "#66c2a5", "B" = "#fc8d62", "C" = "#8da0cb", "D" = "#e78ac3", "E" = "#a6d854", "F" = "#ffd92f", "G" = "#D9dddf")
+SGroup_palette <- c("A" = "#66c2a5", "B" = "#fc8d62", "C" = "#8da0cb", "D" = "#e78ac3", "E" = "#a6d854", "F" = "#ffd92f", "G" = "#D9dddf","black" ="Not Built Up" )
 
 LonLAD <- paste0("E090000", sprintf("%02d", 1:33))
 
@@ -1042,10 +1054,208 @@ Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
                     "D1" = "#B96E9C", "D2" = "#EEADD5", "D3" = "#FFB9DA",
                     "E1" = "#74973B", "E2" = "#CAE898",
                     "F1" = "#CCAE26", "F2" = "#FFE882",
-                    "G1" = "#7D7D7D", "G2" = "#D1D1D1")
+                    "G1" = "#7D7D7D", "G2" = "#D1D1D1",
+                   "Not Built Up" = "#484848")
 
 ggplot() +
   geom_sf(data = cluster_assignments_SF, aes(fill = G),color = NA) +
   scale_fill_manual(values = Group_palette,drop = FALSE,name = "SG") +
   geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD %in% LonLAD), fill = NA, color = "black")+
   theme_void()
+#
+
+
+
+
+
+#---------
+# Borough Atlas
+#---------
+
+#Append Borough codes
+OA_LAD <- cluster_assignments_SF %>%
+  st_centroid() %>%
+  st_join(LAD_Dec21) %>%
+  st_drop_geometry() %>%
+  select(OA21CD, LAD21CD) %>%
+  left_join(cluster_assignments_SF) %>%
+  st_as_sf(crs =27700) 
+
+
+# Import geopackage for built environment (https://osdatahub.os.uk/downloads/open/BuiltUpAreas)
+built <- st_read("./map/OS_Open_Built_Up_Areas.gpkg", layer = "OS_Open_Built_Up_Areas", quiet = TRUE)
+
+# Import geopackage for greenspace (https://osdatahub.os.uk/downloads/open/OpenGreenspace)
+greenspace <- st_read("./map/opgrsp_gb.gpkg", layer = "greenspace_site", quiet = TRUE)
+
+# Calculate Area
+greenspace %<>%
+  mutate(area = st_area(.)) %>%
+  filter(area > units::set_units(40000, m^2))
+
+# Smooth jagged edges
+built %<>%
+  st_buffer(dist=21) %>%
+  st_buffer(dist=-20) %>%
+  st_simplify(preserveTopology = TRUE, dTolerance = 15)
+
+# Perform the clip operation to trim LSOA to built area
+OA_LAD_Built <- st_intersection(OA_LAD, built)
+
+# Clean up attributes
+OA_LAD_Built %<>%
+  select(OA21CD, LAD21CD,G, SG)
+
+# Cut out greenspace
+OA_LAD_Built %<>%
+  st_difference(st_union(greenspace))
+
+# Write lsoa_21_built to geopackage
+st_write(OA_LAD_Built, "map/LOAC_Group_built.gpkg", layer = "OA_LAD_Built", driver = "GPKG")
+
+
+
+
+# Get train station data
+tx <- LAD_Dec21 %>%
+      dplyr::filter(LAD21CD == "E09000023") %>%
+      st_transform(4326)
+
+
+Transport_Tmp <- opq( st_bbox(tx)) %>% 
+  add_osm_feature(key = "railway", value = "station") %>% 
+  add_osm_feature(key = "network", value = c("Underground","Docklands","Rail","Tram","DLR"),value_exact=FALSE) %>%
+  osmdata_sf()
+  
+
+c("Underground","Docklands","Rail","Tram","DLR")
+
+Transport_Tmp <- Transport_Tmp$osm_points %>%
+                  select(name) %>%
+                  st_intersection(tx) %>%
+                  st_transform(27700) %>%
+                  mutate(x = sf::st_coordinates(.)[,1],
+                         y = sf::st_coordinates(.)[,2])
+# Plot
+
+#select the LAD and amend levels
+LAD <- dplyr::filter(OA_LAD_Built, LAD21CD == "E09000031") %>% 
+  mutate(G = factor(G, levels = c("A1", "A2", "A3", "B1", "B2", "C1", "C2", "D1", "D2", "D3", "E1", "E2", "F1", "F2", "G1", "G2","Not Built Up")))
+
+ggplot() +
+  geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == "E09000031"), fill = "#484848", color = NA)+
+  geom_sf(data = LAD, aes(fill = G),lwd = 0.1,color = "black") +
+  scale_fill_manual(values = Group_palette,drop = FALSE, name = "Group") +
+  geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == "E09000031"), fill = NA, lwd = 0.8,color = "black")+
+  geom_sf(data = Transport_Tmp, color = "red") +
+  geom_text_repel(data = Transport_Tmp, bg.color = "white",aes(x = x, y = y, label = name),size=2) +
+  ggspatial::annotation_scale() +
+  theme_void()
+
+ggsave(paste0(dplyr::filter(LAD_Dec21, LAD21CD == "E09000031") %>% select(LAD21NM) %>% st_drop_geometry() %>% pull(),".pdf"),
+       width = 20,
+       height = 20,
+       units = 'cm')
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create_map <- function(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette) {
+  
+  # Filter and transform
+  tx <- LAD_Dec21 %>%
+    dplyr::filter(LAD21CD == LAD21CD_val) %>%
+    st_transform(4326)
+  
+  # OSM data
+  Transport_Tmp <- opq(st_bbox(tx)) %>%
+    add_osm_feature(key = "railway", value = "station") %>% 
+    add_osm_feature(key = "network", value = c("Underground","Docklands","Rail","Tram","DLR"),value_exact=FALSE) %>%
+    osmdata_sf()
+  
+  # Check if Transport_Tmp$osm_points is empty
+  if (nrow(Transport_Tmp$osm_points) == 0) {
+    Transport_Tmp <- NULL
+    warning(paste("No data retrieved for LAD21CD:", LAD21CD_val))
+  } else {
+    Transport_Tmp <- Transport_Tmp$osm_points %>%
+      select(name) %>%
+      st_intersection(tx) %>%
+      st_transform(27700) %>%
+      mutate(x = sf::st_coordinates(.)[, 1], y = sf::st_coordinates(.)[, 2])
+  }
+  
+  
+  #select the LAD and amend levels
+  LAD <- dplyr::filter(OA_LAD_Built, LAD21CD == LAD21CD_val) %>% 
+    mutate(G = factor(G, levels = c("A1", "A2", "A3", "B1", "B2", "C1", "C2", "D1", "D2", "D3", "E1", "E2", "F1", "F2", "G1", "G2","Not Built Up")))
+  
+  
+  # Plot
+  plot <- ggplot() +
+    geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == LAD21CD_val), fill = "#484848", color = NA) +
+    geom_sf(data = LAD, aes(fill = G), lwd = 0.1, color = "black") +
+    scale_fill_manual(values = Group_palette, drop = FALSE, name = "Group") +
+    geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == LAD21CD_val), fill = NA, lwd = 0.8, color = "black") +
+    ggspatial::annotation_scale() +
+    theme_void()
+  
+  # Add the transport layers conditionally, if data exists
+  if (!is.null(Transport_Tmp)) {
+    plot <- plot + 
+      geom_sf(data = Transport_Tmp, color = "red") +
+      geom_text_repel(data = Transport_Tmp, bg.color = "white", aes(x = x, y = y, label = name), size = 2)
+  }
+  
+  # Save
+  ggsave(paste0(dplyr::filter(LAD_Dec21, LAD21CD == LAD21CD_val) %>% select(LAD21NM) %>% st_drop_geometry() %>% pull(), ".pdf"),
+         plot = plot,
+         width = 20,
+         height = 20,
+         units = 'cm')
+}
+
+# Applying to each value in LonLAD list
+lapply(LonLAD, function(LAD21CD_val) {
+  create_map(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
