@@ -34,8 +34,6 @@ library(tcltk2)
 libary(ggspatial)
 library(osmdata)
 library(ggrepel)
-library(showtext)
-font_add_google("Open Sans", "Light 300")
 
 #---------
 # Import spatial data
@@ -48,16 +46,23 @@ OA_2021_Boundary <- st_read("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgi
 OA_Region <- read_csv("https://www.arcgis.com/sharing/rest/content/items/efda0d0e14da4badbd8bdf8ae31d2f00/data")
 
 # Output Area to Upper-Tier Local Authorities (December 2021) Lookup in England and Wales
-OA_UTLAD <- read_csv("https://www.arcgis.com/sharing/rest/content/items/4393e36fa6184b0fb1b2562d98db1da6/data")
+#OA_UTLAD <- read_csv("https://www.arcgis.com/sharing/rest/content/items/4393e36fa6184b0fb1b2562d98db1da6/data")
 
-# Local Authority Districts (December 2021) GB BGC
-LAD_Dec21 <- st_read("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2021_GB_BGC_2022/FeatureServer/0/query?where=1%3D1&outFields=LAD21CD,LAD21NM&outSR=4326&f=json")
+# Output Area to Lower layer Super Output Area to Middle layer Super Output Area to Local Authority District (December 2021) Lookup in England and Wales V2
+OA_UTLAD <- read_csv("https://www.arcgis.com/sharing/rest/content/items/792f7ab3a99d403ca02cc9ca1cf8af02/data")
+
+
+# Local Authority Districts (December 2022) GB BGC
+LAD_Dec22 <- st_read("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2022_UK_BGC_V2/FeatureServer/0/query?where=1%3D1&outFields=LAD22CD,LAD22NM&outSR=4326&f=json")
+
+
+
 
 # Fix Projections
 OA_2021_Boundary %<>%
 st_transform(27700)
 
-LAD_Dec21 %<>%
+LAD_Dec22 %<>%
 st_transform(27700)
 
 
@@ -67,7 +72,7 @@ OA_london <- OA_Region %>%
               select(oa21cd) %>%
               left_join(OA_UTLAD) %>%
               rename(OA = oa21cd) %>%
-              select(OA, utla22cd,utla22nm)
+              select(OA, lad22cd,lad22nm)
   
 #---------
 #  Pull in census 2021 data, calculate PCT
@@ -484,7 +489,7 @@ cluster_assignments_SF <- OA_2021_Boundary %>%
 st_write(cluster_assignments_SF, "./map/LOAC_Group.gpkg", driver = "GPKG")
 write_parquet(cluster_assignments_Groups, "./data/LOAC_Group.parquet")
 
-st_write(LAD_Dec21, "./map/LAD_Dec21.gpkg", driver = "GPKG")
+st_write(LAD_Dec22, "./map/LAD_Dec22.gpkg", driver = "GPKG")
 
 
 ############################################################
@@ -503,7 +508,7 @@ OA_london <- OA_Region %>%
   select(oa21cd) %>%
   left_join(OA_UTLAD) %>%
   rename(OA = oa21cd) %>%
-  select(OA, utla22cd,utla22nm)
+  select(OA, lad22cd,lad22nm)
 
 # List of data
 list_of_dfs <- list(OA_london, Non_PCT, OA21_SDR_London,tmp_table,v03,v04,v05,v06,v26,v28,v29,v36,v37,v60)
@@ -1045,7 +1050,7 @@ LonLAD <- paste0("E090000", sprintf("%02d", 1:33))
 ggplot() +
   geom_sf(data = cluster_assignments_SF, aes(fill = SG),color = NA) +
   scale_fill_manual(values = SGroup_palette,drop = FALSE,name = "SG") +
-  geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD %in% LonLAD), fill = NA, color = "black")+
+  geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD %in% LonLAD), fill = NA, color = "black")+
   theme_void() 
 
 Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
@@ -1059,8 +1064,8 @@ Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
 
 ggplot() +
   geom_sf(data = cluster_assignments_SF, aes(fill = G),color = NA) +
-  scale_fill_manual(values = Group_palette,drop = FALSE,name = "SG") +
-  geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD %in% LonLAD), fill = NA, color = "black")+
+  scale_fill_manual(values = Group_palette,drop = FALSE,name = "G") +
+  geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD %in% LonLAD), fill = NA, color = "black")+
   theme_void()
 #
 
@@ -1069,17 +1074,25 @@ ggplot() +
 
 
 #---------
-# Borough Atlas
+# Create SF with built environment cut out of OA
 #---------
 
+
+
 #Append Borough codes
+# OA_LAD <- cluster_assignments_SF %>%
+#   st_centroid() %>%
+#   st_join(LAD_Dec21) %>%
+#   st_drop_geometry() %>%
+#   select(OA21CD, LAD21CD) %>%
+#   left_join(cluster_assignments_SF) %>%
+#   st_as_sf(crs =27700) 
+
+
 OA_LAD <- cluster_assignments_SF %>%
-  st_centroid() %>%
-  st_join(LAD_Dec21) %>%
-  st_drop_geometry() %>%
-  select(OA21CD, LAD21CD) %>%
-  left_join(cluster_assignments_SF) %>%
-  st_as_sf(crs =27700) 
+  left_join(OA_UTLAD, by= c("OA21CD" = "oa21cd")) %>%
+  select(OA21CD,G,SG,lad22cd,lad22nm)
+
 
 
 # Import geopackage for built environment (https://osdatahub.os.uk/downloads/open/BuiltUpAreas)
@@ -1116,75 +1129,15 @@ st_write(OA_LAD_Built, "map/LOAC_Group_built.gpkg", layer = "OA_LAD_Built", driv
 
 
 
-# Get train station data
-tx <- LAD_Dec21 %>%
-      dplyr::filter(LAD21CD == "E09000023") %>%
-      st_transform(4326)
+#---------
+# Create Borough Maps
+#---------
 
-
-Transport_Tmp <- opq( st_bbox(tx)) %>% 
-  add_osm_feature(key = "railway", value = "station") %>% 
-  add_osm_feature(key = "network", value = c("Underground","Docklands","Rail","Tram","DLR"),value_exact=FALSE) %>%
-  osmdata_sf()
-  
-
-c("Underground","Docklands","Rail","Tram","DLR")
-
-Transport_Tmp <- Transport_Tmp$osm_points %>%
-                  select(name) %>%
-                  st_intersection(tx) %>%
-                  st_transform(27700) %>%
-                  mutate(x = sf::st_coordinates(.)[,1],
-                         y = sf::st_coordinates(.)[,2])
-# Plot
-
-#select the LAD and amend levels
-LAD <- dplyr::filter(OA_LAD_Built, LAD21CD == "E09000031") %>% 
-  mutate(G = factor(G, levels = c("A1", "A2", "A3", "B1", "B2", "C1", "C2", "D1", "D2", "D3", "E1", "E2", "F1", "F2", "G1", "G2","Not Built Up")))
-
-ggplot() +
-  geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == "E09000031"), fill = "#484848", color = NA)+
-  geom_sf(data = LAD, aes(fill = G),lwd = 0.1,color = "black") +
-  scale_fill_manual(values = Group_palette,drop = FALSE, name = "Group") +
-  geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == "E09000031"), fill = NA, lwd = 0.8,color = "black")+
-  geom_sf(data = Transport_Tmp, color = "red") +
-  geom_text_repel(data = Transport_Tmp, bg.color = "white",aes(x = x, y = y, label = name),size=2) +
-  ggspatial::annotation_scale() +
-  theme_void()
-
-ggsave(paste0(dplyr::filter(LAD_Dec21, LAD21CD == "E09000031") %>% select(LAD21NM) %>% st_drop_geometry() %>% pull(),".pdf"),
-       width = 20,
-       height = 20,
-       units = 'cm')
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-create_map <- function(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette) {
+create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette) {
   
   # Filter and transform
-  tx <- LAD_Dec21 %>%
-    dplyr::filter(LAD21CD == LAD21CD_val) %>%
+  tx <- LAD_Dec22 %>%
+    dplyr::filter(LAD22CD == LAD22CD_val) %>%
     st_transform(4326)
   
   # OSM data
@@ -1213,10 +1166,10 @@ create_map <- function(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette) {
   
   # Plot
   plot <- ggplot() +
-    geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == LAD21CD_val), fill = "#484848", color = NA) +
+    geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = "#484848", color = NA) +
     geom_sf(data = LAD, aes(fill = G), lwd = 0.1, color = "black") +
     scale_fill_manual(values = Group_palette, drop = FALSE, name = "Group") +
-    geom_sf(data = dplyr::filter(LAD_Dec21, LAD21CD == LAD21CD_val), fill = NA, lwd = 0.8, color = "black") +
+    geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = NA, lwd = 0.8, color = "black") +
     ggspatial::annotation_scale() +
     theme_void()
   
@@ -1228,7 +1181,7 @@ create_map <- function(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette) {
   }
   
   # Save
-  ggsave(paste0(dplyr::filter(LAD_Dec21, LAD21CD == LAD21CD_val) %>% select(LAD21NM) %>% st_drop_geometry() %>% pull(), ".pdf"),
+  ggsave(paste0(dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val) %>% select(LAD22NM) %>% st_drop_geometry() %>% pull(), ".pdf"),
          plot = plot,
          width = 20,
          height = 20,
@@ -1236,26 +1189,137 @@ create_map <- function(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette) {
 }
 
 # Applying to each value in LonLAD list
-lapply(LonLAD, function(LAD21CD_val) {
-  create_map(LAD21CD_val, LAD_Dec21, OA_LAD_Built, Group_palette)
+lapply(LonLAD, function(LAD22CD_val) {
+  create_map(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette)
 })
 
 
 
 
+############################################################
+# Create Borough Descriptions & Profiles
+############################################################
+
+#---------
+# Create Borough Index Scores
+#---------
+
+# 
+OA_LAD_POP <- OA_LAD %>%
+  left_join(ts007a, by = c("OA21CD" = "OA")) %>%
+  st_drop_geometry()
+
+# Create Base %
+
+base <- OA_LAD_POP %>%
+          group_by(G) %>%
+          summarize(sum_ts007a0001 = sum(ts007a0001)) %>%
+          ungroup() %>% 
+          mutate(G_BASE_PCT = (sum_ts007a0001 / sum(sum_ts007a0001)) * 100) %>%
+          select(G, G_BASE_PCT)
+
+
+
+# Create LAD Population Counts
+
+LAD_POP <- OA_LAD_POP %>%
+            group_by(lad22cd) %>%
+            summarise(LAD_POP = sum(ts007a0001))
+
+
+# Create LAD Group Counts
+LAD_POP_GROUP <- OA_LAD_POP %>%
+  group_by(lad22cd,G) %>%
+  summarise(LAD_POP_GROUP = sum(ts007a0001))
+
+
+# Creates a table with all potential LAD / Group options
+LAD_POP_GROUP_TMP <- expand.grid(
+  lad22cd = unique(OA_LAD_POP[["lad22cd"]]),
+  G = c("A1", "A2", "A3", "B1", "B2", "C1", "C2", "D1", "D2", "D3", "E1", "E2", "F1", "F2", "G1", "G2")
+)
+
+# Fills the gaps where Groups aren't present
+LAD_POP_GROUP <- LAD_POP_GROUP_TMP %>%
+  left_join(LAD_POP_GROUP, by = c("lad22cd", "G")) %>%
+  mutate(LAD_POP_GROUP = replace_na(LAD_POP_GROUP, 0)) %>%
+  as_tibble()
+
+# Calculate the target % and append base
+LAD_POP_GROUP %<>%
+        left_join(LAD_POP) %>%
+        mutate(G_TARGET_PCT = (LAD_POP_GROUP /LAD_POP) * 100) %>%
+        select(lad22cd, G, G_TARGET_PCT,LAD_POP_GROUP) %>%
+        left_join(base)
+      
+
+# Create Index
+LAD_POP_INDEX <- LAD_POP_GROUP %>%
+                    mutate(INDEX_SCORE = G_TARGET_PCT / G_BASE_PCT *100) %>%
+                    left_join(LAD_Dec22, by = c("lad22cd" = "LAD22CD")) %>%
+                    st_drop_geometry() %>%
+                    mutate(INDEX_SCORE_Plot = if_else(INDEX_SCORE >= 200, INDEX_SCORE + 100, INDEX_SCORE)) %>%
+                    mutate(INDEX_SCORE_Plot = INDEX_SCORE_Plot - 100) %>%
+                    mutate(INDEX_SCORE_Plot = if_else(INDEX_SCORE == 0, 0, INDEX_SCORE_Plot)) %>%
+                    select(-geometry)
+
+
+Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
+                   "B1" = "#CA714E", "B2" = "#FC9872",
+                   "C1" = "#63708E", "C2" = "#C6D0E5",
+                   "D1" = "#B96E9C", "D2" = "#EEADD5", "D3" = "#FFB9DA",
+                   "E1" = "#74973B", "E2" = "#CAE898",
+                   "F1" = "#CCAE26", "F2" = "#FFE882",
+                   "G1" = "#7D7D7D", "G2" = "#D1D1D1")
+
+
+
+plt_labels <- LAD_POP_INDEX %>%
+              filter(lad22cd == "E09000007") %>%
+              select(INDEX_SCORE) %>%
+              pull() %>%
+               map(~ ifelse(. == 0, NA, .)) %>%
+              unlist()
+
+color_vec <- ifelse(is.na(plt_labels), "#D3D3D3", "#000000")
+face_vec <- ifelse(is.na(plt_labels), "bold", "plain")
+
+
+
+plot <- ggplot(dplyr::filter(LAD_POP_INDEX, lad22cd == "E09000007") , aes(G, INDEX_SCORE_Plot)) + 
+          geom_hline(yintercept=c(0), color="#7D7D7D") +
+          geom_hline(yintercept=c(-20,120,200), linetype='dashed',color="#7D7D7D",linewidth=0.2) +
+          coord_cartesian(ylim = c(-100, 400)) +
+          geom_bar(stat = "identity", fill = Group_palette) +
+          geom_text(aes(label = round(plt_labels) ),na.rm =TRUE) +
+          scale_x_discrete("LOAC Groups") +
+          scale_y_continuous(breaks = NULL) +
+          annotate("label", x=0, y=-20, label="      80",label.size  = NA,size = 3) +
+          annotate("label", x=0, y=0, label="      100",label.size  = NA,size = 3) +
+          annotate("label", x=0, y=120, label="      120",label.size  = NA,size = 3) +
+          annotate("label", x=0, y=200, label="      200",label.size  = NA,size = 3) +
+          theme_minimal() +
+          theme(axis.text.y=element_blank(),
+                panel.border = element_rect(color = NA, fill = NA),
+                axis.text.x = element_text(colour = color_vec,face = face_vec),
+                plot.title = element_text(hjust = 0.5)) +
+          ylab("Index Score") +
+          ggtitle(dplyr::filter(LAD_POP_INDEX, lad22cd == "E09000007") %>% select(LAD22NM) %>% unique() %>% pull())
 
 
 
 
+if (any(plt_labels > 400, na.rm = TRUE)) { # tests if any of the index scores are over 400
+  # Keep index scores over 400
+  plt_labels_HV <- plt_labels
+  plt_labels_HV[plt_labels_HV <= 400] <- NA
+  
+  plot <- plot + annotate("text", x=1:16, y=410, label=round(plt_labels_HV),size = 4,na.rm = TRUE)
+ 
+}
 
 
-
-
-
-
-
-
-
+plot
 
 
 
