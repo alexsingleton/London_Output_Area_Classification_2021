@@ -34,6 +34,8 @@ library(tcltk2)
 libary(ggspatial)
 library(osmdata)
 library(ggrepel)
+library(officer)
+library(officedown)
 
 #---------
 # Import spatial data
@@ -1053,7 +1055,7 @@ ggplot() +
   geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD %in% LonLAD), fill = NA, color = "black")+
   theme_void() 
 
-Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
+Group_palette_maps <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
                     "B1" = "#CA714E", "B2" = "#FC9872",
                     "C1" = "#63708E", "C2" = "#C6D0E5",
                     "D1" = "#B96E9C", "D2" = "#EEADD5", "D3" = "#FFB9DA",
@@ -1064,7 +1066,7 @@ Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
 
 ggplot() +
   geom_sf(data = cluster_assignments_SF, aes(fill = G),color = NA) +
-  scale_fill_manual(values = Group_palette,drop = FALSE,name = "G") +
+  scale_fill_manual(values = Group_palette_maps,drop = FALSE,name = "G") +
   geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD %in% LonLAD), fill = NA, color = "black")+
   theme_void()
 #
@@ -1117,7 +1119,7 @@ OA_LAD_Built <- st_intersection(OA_LAD, built)
 
 # Clean up attributes
 OA_LAD_Built %<>%
-  select(OA21CD, LAD21CD,G, SG)
+  select(OA21CD, lad22cd,G, SG)
 
 # Cut out greenspace
 OA_LAD_Built %<>%
@@ -1133,7 +1135,7 @@ st_write(OA_LAD_Built, "map/LOAC_Group_built.gpkg", layer = "OA_LAD_Built", driv
 # Create Borough Maps
 #---------
 
-create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette) {
+create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette_maps) {
   
   # Filter and transform
   tx <- LAD_Dec22 %>%
@@ -1149,7 +1151,7 @@ create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette) {
   # Check if Transport_Tmp$osm_points is empty
   if (nrow(Transport_Tmp$osm_points) == 0) {
     Transport_Tmp <- NULL
-    warning(paste("No data retrieved for LAD21CD:", LAD21CD_val))
+    warning(paste("No data retrieved for LAD21CD:", LAD22CD_val))
   } else {
     Transport_Tmp <- Transport_Tmp$osm_points %>%
       select(name) %>%
@@ -1160,7 +1162,7 @@ create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette) {
   
   
   #select the LAD and amend levels
-  LAD <- dplyr::filter(OA_LAD_Built, LAD21CD == LAD21CD_val) %>% 
+  LAD <- dplyr::filter(OA_LAD_Built, lad22cd == LAD22CD_val) %>% 
     mutate(G = factor(G, levels = c("A1", "A2", "A3", "B1", "B2", "C1", "C2", "D1", "D2", "D3", "E1", "E2", "F1", "F2", "G1", "G2","Not Built Up")))
   
   
@@ -1168,7 +1170,7 @@ create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette) {
   plot <- ggplot() +
     geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = "#484848", color = NA) +
     geom_sf(data = LAD, aes(fill = G), lwd = 0.1, color = "black") +
-    scale_fill_manual(values = Group_palette, drop = FALSE, name = "Group") +
+    scale_fill_manual(values = Group_palette_maps, drop = FALSE, name = "Group") +
     geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = NA, lwd = 0.8, color = "black") +
     ggspatial::annotation_scale() +
     theme_void()
@@ -1180,18 +1182,19 @@ create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette) {
       geom_text_repel(data = Transport_Tmp, bg.color = "white", aes(x = x, y = y, label = name), size = 2)
   }
   
-  # Save
-  ggsave(paste0(dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val) %>% select(LAD22NM) %>% st_drop_geometry() %>% pull(), ".pdf"),
-         plot = plot,
-         width = 20,
-         height = 20,
-         units = 'cm')
+  # # Save
+  #  ggsave(paste0(dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val) %>% select(LAD22NM) %>% st_drop_geometry() %>% pull(), ".pdf"),
+  #         plot = plot,
+  #         width = 20,
+  #         height = 20,
+  #         units = 'cm')
+  return(plot)
 }
 
-# Applying to each value in LonLAD list
-lapply(LonLAD, function(LAD22CD_val) {
-  create_map(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette)
-})
+# # Generates Borough Maps
+# lapply(LonLAD, function(LAD22CD_val) {
+#   create_map(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette_maps)
+# })
 
 
 
@@ -1201,7 +1204,7 @@ lapply(LonLAD, function(LAD22CD_val) {
 ############################################################
 
 #---------
-# Create Borough Index Scores
+# Create Borough Index Score Graphs
 #---------
 
 # 
@@ -1217,7 +1220,6 @@ base <- OA_LAD_POP %>%
           ungroup() %>% 
           mutate(G_BASE_PCT = (sum_ts007a0001 / sum(sum_ts007a0001)) * 100) %>%
           select(G, G_BASE_PCT)
-
 
 
 # Create LAD Population Counts
@@ -1274,52 +1276,131 @@ Group_palette <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
 
 
 
-plt_labels <- LAD_POP_INDEX %>%
-              filter(lad22cd == "E09000007") %>%
-              select(INDEX_SCORE) %>%
-              pull() %>%
-               map(~ ifelse(. == 0, NA, .)) %>%
-              unlist()
-
-color_vec <- ifelse(is.na(plt_labels), "#D3D3D3", "#000000")
-face_vec <- ifelse(is.na(plt_labels), "bold", "plain")
-
-
-
-plot <- ggplot(dplyr::filter(LAD_POP_INDEX, lad22cd == "E09000007") , aes(G, INDEX_SCORE_Plot)) + 
-          geom_hline(yintercept=c(0), color="#7D7D7D") +
-          geom_hline(yintercept=c(-20,120,200), linetype='dashed',color="#7D7D7D",linewidth=0.2) +
-          coord_cartesian(ylim = c(-100, 400)) +
-          geom_bar(stat = "identity", fill = Group_palette) +
-          geom_text(aes(label = round(plt_labels) ),na.rm =TRUE) +
-          scale_x_discrete("LOAC Groups") +
-          scale_y_continuous(breaks = NULL) +
-          annotate("label", x=0, y=-20, label="      80",label.size  = NA,size = 3) +
-          annotate("label", x=0, y=0, label="      100",label.size  = NA,size = 3) +
-          annotate("label", x=0, y=120, label="      120",label.size  = NA,size = 3) +
-          annotate("label", x=0, y=200, label="      200",label.size  = NA,size = 3) +
-          theme_minimal() +
-          theme(axis.text.y=element_blank(),
-                panel.border = element_rect(color = NA, fill = NA),
-                axis.text.x = element_text(colour = color_vec,face = face_vec),
-                plot.title = element_text(hjust = 0.5)) +
-          ylab("Index Score") +
-          ggtitle(dplyr::filter(LAD_POP_INDEX, lad22cd == "E09000007") %>% select(LAD22NM) %>% unique() %>% pull())
-
-
-
-
-if (any(plt_labels > 400, na.rm = TRUE)) { # tests if any of the index scores are over 400
-  # Keep index scores over 400
-  plt_labels_HV <- plt_labels
-  plt_labels_HV[plt_labels_HV <= 400] <- NA
+create_plot <- function(LAD22CD_val) {
   
-  plot <- plot + annotate("text", x=1:16, y=410, label=round(plt_labels_HV),size = 4,na.rm = TRUE)
- 
+  # Extract labels for specific LAD22CD_val
+  plt_labels <- LAD_POP_INDEX %>%
+    filter(lad22cd == LAD22CD_val) %>%
+    select(INDEX_SCORE) %>%
+    pull() %>%
+    map(~ ifelse(. == 0, NA, .)) %>%
+    unlist()
+  
+  
+  plt_data <- dplyr::filter(LAD_POP_INDEX, lad22cd == LAD22CD_val) %>%
+    mutate(INDEX_SCORE_Plot = ifelse(INDEX_SCORE_Plot > 415, 415, INDEX_SCORE_Plot))
+  
+  
+  # Set colors and font weights
+  color_vec <- ifelse(is.na(plt_labels), "#D3D3D3", "#000000")
+  face_vec <- ifelse(is.na(plt_labels), "plain", "bold")
+  
+  # Create the plot
+  plot <- ggplot(plt_data , aes(G, INDEX_SCORE_Plot)) + 
+    
+    geom_hline(yintercept=c(-20,120,200), linetype='dashed',color="#7D7D7D",linewidth=0.2) +
+    coord_cartesian(ylim = c(-100, 400),clip = 'off') +
+    geom_bar(stat = "identity", fill = Group_palette) +
+    geom_hline(yintercept=c(0), color="#7D7D7D") +
+    geom_text(aes(label = round(plt_labels) ),size = 3,na.rm =TRUE) +
+    scale_x_discrete("LOAC Groups") +
+    scale_y_continuous(breaks = NULL) +
+    theme_minimal() +
+    theme(axis.text.y=element_blank(),
+          panel.border = element_rect(color = NA, fill = NA),
+          axis.text.x = element_text(colour = color_vec,face = face_vec),
+          plot.title = element_text(hjust = 0.5)) +
+    theme(axis.title.y=element_text(angle=90, vjust=6)) +
+    theme(axis.title.x=element_text(vjust=-5)) +
+    theme(plot.margin = margin(1.3,1.3,1.3,1.3, "cm")) +
+    ylab("Index Score") +
+    ggtitle(dplyr::filter(LAD_POP_INDEX, lad22cd == LAD22CD_val) %>% select(LAD22NM) %>% unique() %>% pull()) +
+    annotate("text", x=0, y=-20, label="    80",size = 3) +
+    annotate("text", x=0, y=0, label="     100",size = 3) +
+    annotate("text", x=0, y=120, label="    120",size = 3) +
+    annotate("text", x=0, y=200, label="     200",size = 3)
+  
+  # Save plot
+  # ggsave(paste0(dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val) %>% select(LAD22NM) %>% st_drop_geometry() %>% pull(), ".pdf"),
+  #        plot = plot,
+  #        width = 20,
+  #        height = 15,
+  #        units = 'cm')
+  
+  return(plot)
 }
 
 
-plot
+# # To generate plots for all values in LonLAD:
+# for (lad in LonLAD) {
+#   create_plot(lad)
+# }
+# 
+
+
+
+
+
+
+
+#---------
+# Create Borough Report
+#---------
+
+# Setup Borough Report
+Borough_Profiles <- read_docx("Report_Template.docx")
+
+generate_borough_report <- function(LAD22CD_val) {
+  
+  tmp_pop_dist_table <- dplyr::filter(LAD_POP_INDEX, lad22cd == LAD22CD_val) %>%
+    select(G, LAD_POP_GROUP) %>%
+    mutate(Total_Population = label_comma(accuracy = 1)(LAD_POP_GROUP)) %>%
+    rename(Group = G) %>%
+    select(-LAD_POP_GROUP)
+  
+  tmp_borough_map <- create_map(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette_maps)
+  
+  tmp_borough_name <- dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val) %>%
+    select(LAD22NM) %>% 
+    st_drop_geometry() %>% 
+    pull()
+  
+  tmp_borough_index <- create_plot(LAD22CD_val)
+  
+  Borough_Profiles %<>%
+    body_add_par(tmp_borough_name, style = "heading 1") %>%
+    body_add_par("Spatial Distribution", style = "heading 2") %>%
+    body_add_par(paste0("The following map shows the spatial distribution of LOAC Groups across the London borough of ", tmp_borough_name, "."), style = "Normal") %>%
+    body_add_gg(value = tmp_borough_map) %>%
+    body_add_par("Index Scores", style = "heading 2") %>%
+    body_add_par(paste("The distribution of LOAC Groups within", tmp_borough_name, "relative to the London average can be shown by calculating an index score. If a distribution was the same as the London average the score would be 100. A score of 200 represents double the London average, and 50 a half. Scores that are less than 80 and greater than 120 are typically indicators of an interesting pattern to interpret, and are the thresholds used to describe the LOAC Super Groups and Groups. Where LOAC Groups are not present within a borough, the LOAC Group codes are 'greyed out'."), style = "Normal") %>%
+    body_add_gg(value = tmp_borough_index) %>%
+    body_add_par("Population Counts", style = "heading 2") %>%
+    body_add_par(paste("The distribution of the population by LOAC Groups is shown in the following table."), style = "Normal") %>%
+    body_add_table(tmp_pop_dist_table, style = "Table Grid") %>%
+    body_add_break()
+  
+  return(Borough_Profiles) # Return the updated Borough_Profiles
+}
+
+# Applying the function to the vector LonLAD
+lapply(LonLAD, generate_borough_report)
+
+
+# Create Borough Profile Document
+print(Borough_Profiles, target = "Borough_Profiles_Output.docx")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
