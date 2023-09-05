@@ -1062,7 +1062,7 @@ Group_palette_maps <- c("A1" = "#539B84", "A2" = "#97C3B5", "A3" = "#C5FFEC",
                     "E1" = "#74973B", "E2" = "#CAE898",
                     "F1" = "#CCAE26", "F2" = "#FFE882",
                     "G1" = "#7D7D7D", "G2" = "#D1D1D1",
-                   "Not Built Up" = "#484848")
+                   "Not Built Up" = "black")
 
 ggplot() +
   geom_sf(data = cluster_assignments_SF, aes(fill = G),color = NA) +
@@ -1168,8 +1168,8 @@ create_map <- function(LAD22CD_val, LAD_Dec22, OA_LAD_Built, Group_palette_maps)
   
   # Plot
   plot <- ggplot() +
-    geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = "#484848", color = NA) +
-    geom_sf(data = LAD, aes(fill = G), lwd = 0.1, color = "black") +
+    geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = "black", color = NA) +
+    geom_sf(data = LAD, aes(fill = G), lwd = 0.01, color = "black") +
     scale_fill_manual(values = Group_palette_maps, drop = FALSE, name = "Group") +
     geom_sf(data = dplyr::filter(LAD_Dec22, LAD22CD == LAD22CD_val), fill = NA, lwd = 0.8, color = "black") +
     ggspatial::annotation_scale() +
@@ -1373,7 +1373,7 @@ generate_borough_report <- function(LAD22CD_val) {
     body_add_par(paste0("The following map shows the spatial distribution of LOAC Groups across the London borough of ", tmp_borough_name, "."), style = "Normal") %>%
     body_add_gg(value = tmp_borough_map) %>%
     body_add_par("Index Scores", style = "heading 2") %>%
-    body_add_par(paste("The distribution of LOAC Groups within", tmp_borough_name, "relative to the London average can be shown by calculating an index score. If a distribution was the same as the London average the score would be 100. A score of 200 represents double the London average, and 50 a half. Scores that are less than 80 and greater than 120 are typically indicators of an interesting pattern to interpret, and are the thresholds used to describe the LOAC Super Groups and Groups. Where LOAC Groups are not present within a borough, the LOAC Group codes are 'greyed out'."), style = "Normal") %>%
+    body_add_par(paste("The incidence of the different LOAC Groups within", tmp_borough_name, "can be compared with the over-all Greater London average by calculating ‘index scores’ for each Group. If the Borough-wide proportion of Output Area zones assigned to a Group were the same as for all Greater London, the score would be 100. A score of 200 would mean that the Group was twice as common, and 50, only half as common. Index scores that are less than 80 or greater than 120 are typically of interest to policy-makers, as of course are values of zero (since the Group is entirely absent)."), style = "Normal") %>%
     body_add_gg(value = tmp_borough_index) %>%
     body_add_par("Population Counts", style = "heading 2") %>%
     body_add_par(paste("The distribution of the population by LOAC Groups is shown in the following table."), style = "Normal") %>%
@@ -1384,11 +1384,11 @@ generate_borough_report <- function(LAD22CD_val) {
 }
 
 # Applying the function to the vector LonLAD
-lapply(LonLAD, generate_borough_report)
+lapply(rev(LonLAD), generate_borough_report)
 
 
 # Create Borough Profile Document
-print(Borough_Profiles, target = "Borough_Profiles_Output.docx")
+print(Borough_Profiles, target = "Borough_Profiles_Output3.docx")
 
 
 
