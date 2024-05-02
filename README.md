@@ -8,7 +8,7 @@ The project was developed in partnership with the Greater London Authority and e
 
 * data \
 	* lookup \
-		*LOAC_2011 - LOAC21 Lookup 
+		* LOAC_2011 - LOAC21 Lookup 
 		* Variables_LOAC - Inpt variables
 	* Census\ - extra census tables
 	* LOAC_Group.parquet - Group lookup
