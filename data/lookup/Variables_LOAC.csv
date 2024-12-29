@@ -43,7 +43,7 @@ v41,Occupancy rating of rooms: -1 or less,ts0520005,,Usual Residence,accommodati
 v42,Standardised Disability Ratio,,X,Other,Standardised Disability Ratio
 v43,Provides no unpaid care,ts0390002,,Other,residents provide no unpaid care
 v44,2 or more cars or vans in household,ts0450004,,Other,household is more affluent
-v45,"Highest level of qualification: Level 1, 2 or Apprenticeship",ts0670003,,Other,"have level 1,2 or Apprenticeship qualifications"
+v45,"Highest level of qualification: Level 1",ts0670003,,Other,"have level 1 qualification"
 v46,Highest level of qualification: Level 3 qualifications,ts0670006,,Other,have Level 3 qualifications
 v47,Highest level of qualification: Level 4 qualifications or above,ts0670007,,Other,have Level 4  or above qualifications
 v48,Hours worked: Part-time,ts0590002,,Employment,work part time
